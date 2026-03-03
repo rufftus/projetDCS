@@ -40,8 +40,6 @@ if (isset($erreur)) {
 </table>
 
 
-<br><br>
-<a href="../test.php">Retourner dans le Menu</a>
 
 </body>
 </html>

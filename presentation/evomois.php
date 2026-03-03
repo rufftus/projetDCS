@@ -29,7 +29,7 @@ if (isset($erreur)) {
 <table class="table table-bordered table-striped table-responsive">
 
     <?php
-    echo "<tr><td>Mois</td><td>Total(unités cumulées)</td></tr>";
+    echo "<tr class='goat'><td class='autre-goat'>Mois</td><td>Total(unités cumulées)</td></tr>";
     // Boucle sur les lignes du tableau associatif (résultat requête SQL)
     foreach ($mesApplications as $ligne) {
         $mois = $ligne['mois'];
@@ -40,8 +40,6 @@ if (isset($erreur)) {
 </table>
 
 
-<br><br>
-<a href="../test.php">Retourner dans le Menu</a>
 
 </body>
 </html>

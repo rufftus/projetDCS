@@ -40,14 +40,13 @@ class dialogueBD
     {
         try {
             $conn = Connexion::getConnexion();
-            $sql = "SELECT mois ,sum(volume), FROM ressource 
-                   JOIN consommation c ON ressource.res_id=c.res_id 
-                    where res_id=1
-                    UNION 
-                    SELECT mois ,sum(volume), FROM ressource 
-                   JOIN consommation c ON ressource.res_id=c.res_id 
-                    where res_id=3
-                    GROUP BY consommation.mois ORDER BY mois ASC ";
+            $sql = "SELECT 
+                        DATE_FORMAT(mois, '%Y-%m') AS mois_format, 
+                        SUM(CASE WHEN res_id = 1 THEN volume ELSE 0 END) AS total_stockage,
+                        SUM(CASE WHEN res_id = 3 THEN volume ELSE 0 END) AS total_reseau
+                    FROM consommation
+                    GROUP BY mois 
+                    ORDER BY mois ASC";
             $sth = $conn->prepare($sql);
             $sth->execute();
             $tabAppli = $sth->fetchAll(PDO::FETCH_ASSOC);

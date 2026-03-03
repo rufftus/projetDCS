@@ -26,22 +26,22 @@ if (isset($erreur)) {
 ?>
 <h1>Comparaison Stockage vs Réseau</h1>
 
-<table class="table table-bordered table-striped table-responsive">
+<table>
 
     <?php
-    echo "<tr><td>Mois</td><td>Stockage(Go)</td><td>Réseau(Go)</td></tr>";
+    echo "<tr class='goat'><td class='autre-goat'>Mois</td><td>Stockage(Go)</td><td>Réseau(Go)</td></tr>";
     // Boucle sur les lignes du tableau associatif (résultat requête SQL)
     foreach ($mesApplications as $ligne) {
-        $nom = $ligne['nom'];
-        $volume = $ligne['sum(volume)'];
-        echo "<tr><td>$nom </td><td>$volume</td> </tr>";
+        $mois = $ligne['mois_format'];
+        $stockage = $ligne['total_stockage'];
+        $reseau = $ligne['total_reseau'];
+
+        echo "<tr><td>$mois </td> <td>$stockage</td> <td>$reseau</td> </tr>";
     }
     ?>
 </table>
 
 
-<br><br>
-<a href="../test.php">Retourner dans le Menu</a>
 
 </body>
 </html>
