@@ -1,5 +1,6 @@
 <head>
     <meta charset="UTF-8" />
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <title>Tableau des employés</title>
 </head>
 <?php
@@ -29,7 +30,7 @@ if (isset($erreur)) {
 <table class="table table-bordered table-striped table-responsive">
 
     <?php
-    echo "<tr class='goat'><td class='autre-goat'>Mois</td><td>Total(unités cumulées)</td></tr>";
+    echo "<tr ><td><B>Mois</B></td><td><B>Total(unités cumulées)</B></td></tr>";
     // Boucle sur les lignes du tableau associatif (résultat requête SQL)
     foreach ($mesApplications as $ligne) {
         $mois = $ligne['mois'];
